@@ -8,7 +8,7 @@
 #include "mkl.h"
 #include<fstream>
 #include<cstring>
-#include "creatematrix.h"
+#include "matrix2.h"
 #define pi 3.1415926535898 
 using namespace std;
 int main()
