@@ -38,7 +38,7 @@ int main()
 			complex<double> *b = new complex<double>[2 * N * 2 * N];
 			for (int k = 0; k<2 * N; k++)
 			{
-				for (int l = 0; l<4 * N; l++)
+				for (int l = 0; l<2 * N; l++)
 				{
 					b[k * 2 * N + l] = a[k][l];
 				}
