@@ -40,6 +40,7 @@ int main()
 			ky = (-pi) + 2.0*pi* m1 / 100.0;
 			//cout << kx << " " << ky <<endl;
 			complex<double> a[N][N] = { {0,0} };
+			complex<double> b[N*N] = { {0.0} };
 
 
 			/*------------------------------------------------- create the matrix------------------------------------------*/
@@ -75,9 +76,16 @@ int main()
 			//lapack_complex_double vl[N];
 			//lapack_complex_double vr[N];
 			lapack_int lda = N;
+			for(int k=0;k<N;k++）
+			    {
+				    for(int l=0;l<N;l++)
+				    {
+					    b[k*N+l] = a[k][l];
+				    }
+			    }
 			//lapack_int ldvl = N;
 			//lapack_int ldvr = N;
-			LAPACKE_zheev(LAPACK_ROW_MAJOR, jobz, uplo, N, *a, lda, w); //diagonalization
+			LAPACKE_zheev(LAPACK_ROW_MAJOR, jobz, uplo, N, b, lda, w); //diagonalization
 			fprintf(out, "%f %f ", kx, ky);
 			for (i = 0; i < N; i++)
 			{
